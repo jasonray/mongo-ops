@@ -176,6 +176,23 @@ Advice on Disk
 switch to fast disks.  SSD way over spinning-disks.
 file system recommendation: XFS or ext4, do not use NFS
 
+Backup
+------
+### On-line backup using mongo
+`mongodump` / `mongorestore`
+(what is the oplog flag)
+
+### File system backup
+shutdown server or use db.fsyncLock()
+copy data/db files
+restart or use db.fsyncUnlock()
+
+Can do this from a secondary rather than the primary to lessen production impact
+
+
+
+
+
 
 
 
