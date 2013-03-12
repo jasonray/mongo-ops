@@ -109,7 +109,7 @@ ulimit
 ------
 `ulimit -a`
 
-(http://docs.mongodb.org/manual/administration/ulimit/)
+http://docs.mongodb.org/manual/administration/ulimit/
 
 I wasn't paying attention for a moment, but this show number of max open files (1024).  He said to raise this
 
