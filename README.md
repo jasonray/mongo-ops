@@ -189,6 +189,7 @@ restart or use db.fsyncUnlock()
 
 Can do this from a secondary rather than the primary to lessen production impact
 
+Note that while locked, access is blocked.
 
 
 
