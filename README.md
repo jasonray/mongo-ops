@@ -92,3 +92,28 @@ Padding Factor: recognizing that we have to move stuff alot
 
 to see in MB:
 > db.zips.stats(1024*1024);
+
+Server Status
+-------------
+```
+db.serverStatus()
+```
+
+pid: current process
+uptime: various fields to see how long db has been up
+locks
+mem: expect it to be bits:64; resident: amount of memory allocate (in MB)
+connections: active client connections to mongod
+
+ulimit
+------
+`ulimit -a`
+
+(http://docs.mongodb.org/manual/administration/ulimit/)
+
+I wasn't paying attention for a moment, but this show number of max open files (1024).  He said to raise this
+
+
+
+
+
