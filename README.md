@@ -258,7 +258,29 @@ Good use is distributed data centers
 
 Sharding
 --------
+#### Analogy
+Sharding => raid 0
+Replication => raid 1
 
+#### Notes
+setup replica's on each shard
+each shard represents a replica SET
+
+for each collection, set key
+start with single chunk (+/- inf)
+when certain size, split chunk (- to x, x to inf)
+chunks get split among shard
+
+mongos on each appserver
+
+can use --chunkSize to make it easier to view behavior
+
+#### view sharding status
+> sh.status
+
+#### More notes
+http://docs.mongodb.org/manual/reference/command/shardCollection/
+sh.ShareCollection('other', {key:1});
 
 
 
