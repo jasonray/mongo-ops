@@ -166,6 +166,12 @@ view disk performance
 Note: can turn to reduce read-ahead blocks on disk if doing lots of random-access.
 Making lower can reduce disk io.
 
+Mongo Monitoring Service
+------------------------
+http://www.10gen.com/products/mongodb-monitoring-service
+
+Cloud-host service.  Also offered as a on-premise app.
+
 
 
 
