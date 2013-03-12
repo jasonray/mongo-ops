@@ -1,12 +1,16 @@
-h1. Ops Class
+Ops Class
+---------
 
 For me during class
+---------
 ```
 ./mongod --dbpath /code/exploratory/mongo-ops/data/db
 use mongo-ops
 ```
 
-h1. Shutdown
+Shutdown
+---------
+
 Safe Shutdown:
 `killall mongod`
 
@@ -16,18 +20,21 @@ Harsh Shutdown:
 From mongo shell:
 `db.shutdownServer()`
 
-h1. Production setup
+Production setup
+---------
 
 use linux
 use download rather than package installer
 file system recommendation: XFS or ext4, do not use NFS
 
-h1. Releases
+Releases
+---------
 
 even releases are prod releases (2.2)
 odd releases are dev preview release (2.3)
 
-h1. Command line
+Command line
+---------
 
 Data defaults to:
 /data/db
@@ -38,7 +45,9 @@ option: --directoryperdb
 (allows you to mount db's to different storage)
 
 
-h1. Get Stats on db
+Get Stats on db
+---------
+
 h2. On DB
 > db.stats()
 {
