@@ -48,7 +48,8 @@ option: --directoryperdb
 Get Stats on db
 ---------
 
-h2. On DB
+On DB
+=====
 > db.stats()
 {
  "db" : "mongo-ops",
@@ -65,7 +66,8 @@ h2. On DB
  "ok" : 1
 }
 
-h2. On collection
+On collection
+=====
 > db.zips.stats();
 {
 	"ns" : "mongo-ops.zips",
