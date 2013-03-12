@@ -148,5 +148,9 @@ Can enable auth.  Would want to block these port from the world.
 
 Can enable jsonp but don't do in production as this would allow arbitrary execution on db.
 
+iostat
+------
+(linux specific)
+`iostat` to view disk activity
 
 
