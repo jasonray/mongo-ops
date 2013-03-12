@@ -107,6 +107,13 @@ connections: active client connections to mongod
 indexCounter: can see how often we are using indexes vs not
 network: can see info on network in/out usages
 opcounters: number of discrete actions (i/u/etc)
+metrics: has more stuff
+
+Per Db View of some of this stuff
+=======
+```
+db.adminCommand('top')`
+```
 
 ulimit
 ------
