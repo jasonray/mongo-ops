@@ -115,6 +115,16 @@ Per Db View of some of this stuff
 db.adminCommand('top')`
 ```
 
+mongostat
+=========
+`mongostat`
+will output to command line the server stats
+
+mongotop
+========
+`mongotop`
+shows which collections are being hit
+
 ulimit
 ------
 `ulimit -a`
@@ -123,7 +133,20 @@ http://docs.mongodb.org/manual/administration/ulimit/
 
 I wasn't paying attention for a moment, but this show number of max open files (1024).  He said to raise this
 
+Web Interface
+-------------
+port+1000
 
+http://localhost:28017
+
+Out of the box admin ui tool
+
+must use `--rest` on server startup to use some of the features.
+This enables ability to set stuff via http / curl or utilities
+
+Can enable auth.  Would want to block these port from the world.
+
+Can enable jsonp but don't do in production as this would allow arbitrary execution on db.
 
 
 
