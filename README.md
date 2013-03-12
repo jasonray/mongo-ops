@@ -104,6 +104,7 @@ uptime: various fields to see how long db has been up
 locks
 mem: expect it to be bits:64; resident: amount of memory allocate (in MB)
 connections: active client connections to mongod
+indexCounter: can see how often we are using indexes vs not
 
 ulimit
 ------
