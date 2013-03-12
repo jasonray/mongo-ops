@@ -158,8 +158,11 @@ on Linux: `iostat -xm 2`
 on Mac: `iostat` 
 
 ## top
+view cpu, etc
 
-## lsblk
+## lsblk, blockdev
+view disk performance
+
 
 
 
