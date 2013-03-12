@@ -199,6 +199,56 @@ mongo /path/to/code.js
 
 this allow you to execute shell commands
 
+Replication
+-----------
+For my own experiment, create data location for each instance that I will start
+```
+mkdir /code/exploratory/mongo-ops/data/db/a
+mkdir /code/exploratory/mongo-ops/data/db/b
+mkdir /code/exploratory/mongo-ops/data/db/c
+```
+
+Start multiple instances, each with own data and port (this would likely be multiple machines)
+```
+./mongod --replSet myrs --rest --smallfiles --dbpath /code/exploratory/mongo-ops/data/db/a --port 10001
+./mongod --replSet myrs --rest --smallfiles --dbpath /code/exploratory/mongo-ops/data/db/b --port 10002
+./mongod --replSet myrs --rest --smallfiles --dbpath /code/exploratory/mongo-ops/data/db/c --port 10003
+```
+
+## Setup
+rs.initiate() # this start an interactive session of adding to the replica set
+rs.add(..)
+rs.add(..)
+rs.conf()
+-> can init with this output rather than this interactive
+
+rs.status()
+
+## Adding a new node
+can be done via rs.add() with blank or starting from backup
+
+## Enable read from slave
+rs.slaveOk();
+
+## Edit config
+```
+c = rs.config()
+edit c
+rs.reconfig(c)
+```
+
+## Config optiosn
+- priority
+- hidden: don't even use for queries
+- slaveDelay: don't send data right away to give time in case of accident, acts as rolling backup
+
+
+Sharding
+--------
+
+
+
+
 
 
 
