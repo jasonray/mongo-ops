@@ -106,6 +106,7 @@ mem: expect it to be bits:64; resident: amount of memory allocate (in MB)
 connections: active client connections to mongod
 indexCounter: can see how often we are using indexes vs not
 network: can see info on network in/out usages
+opcounters: number of discrete actions (i/u/etc)
 
 ulimit
 ------
