@@ -237,7 +237,7 @@ edit c
 rs.reconfig(c)
 ```
 
-## Config optiosn
+## Config options
 - priority
 - hidden: don't even use for queries
 - slaveDelay: don't send data right away to give time in case of accident, acts as rolling backup
