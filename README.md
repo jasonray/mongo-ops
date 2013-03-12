@@ -242,6 +242,16 @@ rs.reconfig(c)
 - hidden: don't even use for queries
 - slaveDelay: don't send data right away to give time in case of accident, acts as rolling backup
 
+#### Wait for propagation
+to demo this, set slaveDelay to 10s
+db.z.insert(..); db.getLastError(..);
+client will wait while it propagates
+
+#### conflicts, rollback
+if diverge (primary goes down and has not propagate)
+when primary comes back up possible that it will need to auto-rollback
+this can be mitigated by changing write-concern to majority+
+
 
 Sharding
 --------
