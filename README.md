@@ -191,6 +191,14 @@ Can do this from a secondary rather than the primary to lessen production impact
 
 Note that while locked, access is blocked.
 
+Run javascript from terminal through mongo
+------------------------------------------
+```
+mongo /path/to/code.js
+```
+
+this allow you to execute shell commands
+
 
 
 
