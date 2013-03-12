@@ -25,7 +25,6 @@ Production setup
 
 use linux
 use download rather than package installer
-file system recommendation: XFS or ext4, do not use NFS
 
 Releases
 ---------
@@ -172,6 +171,10 @@ http://www.10gen.com/products/mongodb-monitoring-service
 
 Cloud-host service.  Also offered as a on-premise app.
 
+Advice on Disk
+--------------
+switch to fast disks.  SSD way over spinning-disks.
+file system recommendation: XFS or ext4, do not use NFS
 
 
 
