@@ -14,7 +14,7 @@ Shutdown
 Safe Shutdown:
 `killall mongod`
 
-Harsh Shutdown:
+Harsh Shu tdown:
 `killall -9 mongod`
 
 From mongo shell:
@@ -162,6 +162,9 @@ view cpu, etc
 
 ## lsblk, blockdev
 view disk performance
+
+Note: can turn to reduce read-ahead blocks on disk if doing lots of random-access.
+Making lower can reduce disk io.
 
 
 
