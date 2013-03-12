@@ -252,6 +252,9 @@ if diverge (primary goes down and has not propagate)
 when primary comes back up possible that it will need to auto-rollback
 this can be mitigated by changing write-concern to majority+
 
+## Read from secondary
+Instructor: tried to talk us out of reading from secondaries as it will likely put you in a spot where you are beyond capacity.  Usually if you are using read from secondary you have probably messed up your capacity planning.
+Good use is distributed data centers
 
 Sharding
 --------
