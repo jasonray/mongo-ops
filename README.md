@@ -215,7 +215,7 @@ Start multiple instances, each with own data and port (this would likely be mult
 ./mongod --replSet myrs --rest --smallfiles --dbpath /code/exploratory/mongo-ops/data/db/c --port 10003
 ```
 
-## Setup
+#### Setup
 rs.initiate() # this start an interactive session of adding to the replica set
 rs.add(..)
 rs.add(..)
@@ -224,20 +224,20 @@ rs.conf()
 
 rs.status()
 
-## Adding a new node
+#### Adding a new node
 can be done via rs.add() with blank or starting from backup
 
-## Enable read from slave
+#### Enable read from slave
 rs.slaveOk();
 
-## Edit config
+#### Edit config
 ```
 c = rs.config()
 edit c
 rs.reconfig(c)
 ```
 
-## Config options
+#### Config options
 - priority
 - hidden: don't even use for queries
 - slaveDelay: don't send data right away to give time in case of accident, acts as rolling backup
