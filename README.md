@@ -1,8 +1,9 @@
 Ops Class
 ---------
+These are my notes started from Mongo DC workshop [http://www.10gen.com/events/mongodb-washington-dc-workshops-2013]
 
 For me during class
----------
+===================
 ```
 ./mongod --dbpath /code/exploratory/mongo-ops/data/db
 use mongo-ops
