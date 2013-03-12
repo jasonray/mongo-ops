@@ -148,9 +148,19 @@ Can enable auth.  Would want to block these port from the world.
 
 Can enable jsonp but don't do in production as this would allow arbitrary execution on db.
 
-iostat
-------
-(linux specific)
-`iostat` to view disk activity
+OS tools 
+--------
+Most of these are linux specific tools.  I list these just as recommendation from instructor on what is good for tracking mongod performance.
+
+## iostat
+view disk activity
+on Linux: `iostat -xm 2` 
+on Mac: `iostat` 
+
+## top
+
+## lsblk
+
+
 
 
