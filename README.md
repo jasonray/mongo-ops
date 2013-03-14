@@ -324,6 +324,7 @@ Sharding is like raid 0 while Replication is like raid 1
 
 #### Notes
 setup replica's on each shard
+
 each shard represents a replica SET
 
 For each collection that you will shard, set key.  For most sharding use cases, this should be a key that allows for high cardinality (very discrete).  Other info on choosing shard key: [http://docs.mongodb.org/manual/core/sharded-cluster-internals/].  
