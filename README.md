@@ -320,7 +320,7 @@ Sharding
 General info on sharding: [http://docs.mongodb.org/manual/sharding/]
 
 #### Analogy
-Sharding is like raid 0 while Replication is like raid 1
+Sharding is like raid 0, while Replication is like raid 1
 
 #### Notes
 setup replica's on each shard
