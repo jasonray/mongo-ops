@@ -334,7 +334,7 @@ chunks get split among shard
 
 mongos on each appserver
 
-can use --chunkSize to make it easier to view behavior
+can use `--chunkSize` to make it easier to view behavior
 
 #### view sharding status
 ```
