@@ -8,47 +8,81 @@ These are my notes started from Mongo DC workshop [http://www.10gen.com/events/m
 use mongo-ops
 ```
 
+Mongo Processes
+---------------
+The mongo ecosystem is comprised of:
+
+`mongod`: database engine
+`mongo`: mongo shell client
+`mongos`: mongo router after you have setup sharding
+
+Startup
+-------
+In general, start using `mongod`.
+
+Options:
+#### specify data directory
+```
+mongod --dbpath /data/db
+```
+
+#### specify listener port
+```
+mongod --port 12345
+```
+
+#### run as a daemon
+By default, mongod runs as foreground process.  To run as background process / daemon / fork:
+```
+mongod --fork --logpath /tmp/file.log
+```
+
+#### directory per db
+The `directoryperdb` option allows for a different directory per logical database handled by the mongod process.  Although this is likely to be more of a dev concern, it could be used in production to allow mapping different databases to different physical disks.
+
+More info: [http://docs.mongodb.org/manual/tutorial/manage-mongodb-processes/#start-mongod]
+More config options: [http://docs.mongodb.org/manual/administration/configuration/]
+
+
 Shutdown
----------
+--------
+Shutdown using SIGTERM:
+```
+killall mongod
+```
 
-Safe Shutdown:
-`killall mongod`
-
-Harsh Shu tdown:
-`killall -9 mongod`
+Shutdown using SIGKILL:
+```
+killall -9 mongod
+```
 
 From mongo shell:
-`db.shutdownServer()`
+```
+db.shutdownServer()
+```
+
+More info on shutdown: [http://docs.mongodb.org/manual/administration/configuration/#starting-stopping-and-running-the-database]
+
 
 Production setup
----------
+----------------
+Can be run using either linux or windows, although instructor seemed to prefer linux.
 
-use linux
-use download rather than package installer
+Recommend to use download [http://www.10gen.com/products/mongodb] rather than linux/mac package installer.
 
-Releases
----------
-
-even releases are prod releases (2.2)
-odd releases are dev preview release (2.3)
-
-Command line
----------
-
-Data defaults to:
-/data/db
-or custom --dbpath
-
-
-option: --directoryperdb
-(allows you to mount db's to different storage)
+Release Numbers
+---------------
+Even releases are prod releases (2.2)
+Odd releases are dev preview release (2.3)
 
 
 Get Stats on db
----------
+---------------
+Mongodb offers mechanisms to collect stats from the database engine.  These can be done via shell.
 
-On DB
-=====
+database stats
+==============
+```
 > db.stats()
 {
  "db" : "mongo-ops",
@@ -64,9 +98,11 @@ On DB
  "nsSizeMB" : 16,
  "ok" : 1
 }
+```
 
-On collection
-=====
+specific collection stats
+=========================
+```
 > db.zips.stats();
 {
 	"ns" : "mongo-ops.zips",
@@ -86,14 +122,17 @@ On collection
 	},
 	"ok" : 1
 }
+```
 
-Padding Factor: recognizing that we have to move stuff alot
+One note is that padding factor can be used to recognize that we have to move stuff a lot
 
 to see in MB:
+```
 > db.zips.stats(1024*1024);
+```
 
 Server Status
--------------
+=============
 ```
 db.serverStatus()
 ```
@@ -109,7 +148,7 @@ opcounters: number of discrete actions (i/u/etc)
 metrics: has more stuff
 
 Per Db View of some of this stuff
-=======
+=================================
 ```
 db.adminCommand('top')`
 ```
@@ -125,7 +164,7 @@ mongotop
 shows which collections are being hit
 
 ulimit
-------
+======
 `ulimit -a`
 
 http://docs.mongodb.org/manual/administration/ulimit/
@@ -133,7 +172,7 @@ http://docs.mongodb.org/manual/administration/ulimit/
 I wasn't paying attention for a moment, but this show number of max open files (1024).  He said to raise this
 
 Web Interface
--------------
+=============
 port+1000
 
 http://localhost:28017
@@ -148,7 +187,7 @@ Can enable auth.  Would want to block these port from the world.
 Can enable jsonp but don't do in production as this would allow arbitrary execution on db.
 
 OS tools 
---------
+========
 Most of these are linux specific tools.  I list these just as recommendation from instructor on what is good for tracking mongod performance.
 
 ## iostat
@@ -166,7 +205,7 @@ Note: can turn to reduce read-ahead blocks on disk if doing lots of random-acces
 Making lower can reduce disk io.
 
 Mongo Monitoring Service
-------------------------
+========================
 http://www.10gen.com/products/mongodb-monitoring-service
 
 Cloud-host service.  Also offered as a on-premise app.
