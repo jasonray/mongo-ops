@@ -320,8 +320,8 @@ Sharding
 General info on sharding: [http://docs.mongodb.org/manual/sharding/]
 
 #### Analogy
-Sharding => raid 0
-Replication => raid 1
+Sharding is like raid 0
+Replication is like raid 1
 
 #### Notes
 setup replica's on each shard
