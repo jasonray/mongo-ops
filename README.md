@@ -327,24 +327,24 @@ Replication is like raid 1
 setup replica's on each shard
 each shard represents a replica SET
 
-for each collection, set key
-start with single chunk (+/- inf)
-when certain size, split chunk (- to x, x to inf)
-chunks get split among shard
+For each collection that you will shard, set key.  For most sharding use cases, this should be a key that allows for high cardinality (very discrete).  Other info on choosing shard key: [http://docs.mongodb.org/manual/core/sharded-cluster-internals/].  
+Mongo breaks up a collection into chunks based on the shard key (aims for approx 32mb).
+The chunks are then distributed across shard instances.
 
-mongos on each appserver
+Mongo starts with single chunk (+/- inf).  When a chunk gets to a certain size, mongo will split chunk (- to x, x to inf).  When there is un-even distribution of chunks among shards, mongo will move the shards.
 
-can use `--chunkSize` to make it easier to view behavior
+`mongos` is a process that runs on appserver.  It acts as a router.  The app (in our case, middleware) connects to `mongos` rather than `mongod`.  `mongos` is aware of the shared key to chunk to mongo instance mapping, and routes the call to the correct instance for processing.
 
 #### view sharding status
 ```
 > sh.status
 ```
 
-#### More notes
-http://docs.mongodb.org/manual/reference/command/shardCollection/
+Can use `--chunkSize` to make it easier to view behavior during dev/test
+
+[http://docs.mongodb.org/manual/reference/command/shardCollection/]
 ```
-sh.ShareCollection('other', {key:1});
+sh.sharedCollection('other', {key:1});
 ```
 
 
