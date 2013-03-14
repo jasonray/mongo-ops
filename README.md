@@ -217,22 +217,29 @@ Making lower can reduce disk io.
 
 Mongo Monitoring Service
 ========================
-http://www.10gen.com/products/mongodb-monitoring-service
+Cloud-host service to provide monitoring info.  Also offered as a on-premise app.
 
-Cloud-host service.  Also offered as a on-premise app.
+info on MMS: [http://www.10gen.com/products/mongodb-monitoring-service]
 
 Advice on Disk
 --------------
-switch to fast disks.  SSD way over spinning-disks.
-file system recommendation: XFS or ext4, do not use NFS
+Spend money on fast disk.  Switch to SSD over spinning-disks.
+File system recommendation: XFS or ext4, do not use NFS
 
 Backup
 ------
-### On-line backup using mongo
-`mongodump` / `mongorestore`
-(what is the oplog flag)
+General info:
+- [http://docs.mongodb.org/manual/administration/backups/]
+- [http://docs.mongodb.org/manual/tutorial/backup-databases-with-binary-database-dumps/]
 
-### File system backup
+#### On-line backup using mongo
+`mongodump` / `mongorestore`
+
+More info: 
+- [http://docs.mongodb.org/manual/reference/mongodump/]
+- [http://docs.mongodb.org/manual/reference/mongorestore/]
+
+#### File system backup
 shutdown server or use db.fsyncLock()
 copy data/db files
 restart or use db.fsyncUnlock()
@@ -251,6 +258,8 @@ this allow you to execute shell commands
 
 Replication
 -----------
+General info on replication: [http://docs.mongodb.org/manual/replication/]
+
 For my own experiment, create data location for each instance that I will start
 ```
 mkdir /code/exploratory/mongo-ops/data/db/a
@@ -308,6 +317,8 @@ Good use is distributed data centers
 
 Sharding
 --------
+General info on sharding: [http://docs.mongodb.org/manual/sharding/]
+
 #### Analogy
 Sharding => raid 0
 Replication => raid 1
@@ -326,11 +337,15 @@ mongos on each appserver
 can use --chunkSize to make it easier to view behavior
 
 #### view sharding status
+```
 > sh.status
+```
 
 #### More notes
 http://docs.mongodb.org/manual/reference/command/shardCollection/
+```
 sh.ShareCollection('other', {key:1});
+```
 
 
 
