@@ -151,6 +151,8 @@ network: can see info on network in/out usages
 opcounters: number of discrete actions (i/u/etc)
 metrics: has more stuff
 
+Info on server status: [http://docs.mongodb.org/manual/reference/server-status/]
+
 per DB view of some of this stuff
 =================================
 ```
@@ -167,6 +169,8 @@ mongotop
 `mongotop`
 shows which collections are being hit
 
+info on mongostat: [http://docs.mongodb.org/manual/reference/mongostat/]
+
 ulimit
 ======
 `ulimit -a`
@@ -175,20 +179,23 @@ http://docs.mongodb.org/manual/administration/ulimit/
 
 I wasn't paying attention for a moment, but this show number of max open files (1024).  He said to raise this
 
+info on ulimit: [http://docs.mongodb.org/manual/administration/ulimit/]
+
 Web Interface
 =============
-port+1000
+Mongodb comes with an admin web interface.
 
-http://localhost:28017
+It runs on port+1000
 
-Out of the box admin ui tool
+So for example, if mongod is running on 27017, then the web interface would be on `http://localhost:28017`
 
-must use `--rest` on server startup to use some of the features.
-This enables ability to set stuff via http / curl or utilities
+Many of the features require that mongod is started with rest support using `--rest`.  This also enables ability to set settings via http / curl or utilities.
 
-Can enable auth.  Would want to block these port from the world.
+With rest enabled, need to be concerned with preventing unauthorized access to admin settings.  Can enable auth.  Would want to block these port from the world.
 
-Can enable jsonp but don't do in production as this would allow arbitrary execution on db.
+Can optionally enable jsonp but don't do in production as this would allow arbitrary execution on db.
+
+More info on HTTP / Web Interface: [http://docs.mongodb.org/ecosystem/tools/http-interfaces/]
 
 OS tools 
 ========
