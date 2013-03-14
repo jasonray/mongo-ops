@@ -100,6 +100,8 @@ database stats
 }
 ```
 
+Info on db.stats: [http://docs.mongodb.org/manual/reference/method/db.stats/#db.stats]
+
 specific collection stats
 =========================
 ```
@@ -124,6 +126,8 @@ specific collection stats
 }
 ```
 
+Info on db.collection.stats: [http://docs.mongodb.org/manual/reference/collection-statistics/]
+
 One note is that padding factor can be used to recognize that we have to move stuff a lot
 
 to see in MB:
@@ -147,7 +151,7 @@ network: can see info on network in/out usages
 opcounters: number of discrete actions (i/u/etc)
 metrics: has more stuff
 
-Per Db View of some of this stuff
+per DB view of some of this stuff
 =================================
 ```
 db.adminCommand('top')`
