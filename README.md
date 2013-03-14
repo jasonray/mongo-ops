@@ -201,15 +201,15 @@ OS tools
 ========
 Most of these are linux specific tools.  I list these just as recommendation from instructor on what is good for tracking mongod performance.
 
-## iostat
+#### iostat
 view disk activity
 on Linux: `iostat -xm 2` 
 on Mac: `iostat` 
 
-## top
+#### top
 view cpu, etc
 
-## lsblk, blockdev
+#### lsblk, blockdev
 view disk performance
 
 Note: can turn to reduce read-ahead blocks on disk if doing lots of random-access.
